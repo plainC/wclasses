@@ -11,5 +11,7 @@ int main()
     W_FOR_STRING_ROPE(node,rope)
         printf("%s", node->buf);
     printf("\n");
+
+    W_CALL_VOID(rope,free);
 }
 

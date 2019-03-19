@@ -2,6 +2,9 @@
 
 FINALIZE(WstringRope)
 {
+    W_FOR_STRING_ROPE(node, self) {
+        free(node);
+    }
 }
 
 M__append
