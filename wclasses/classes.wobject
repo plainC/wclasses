@@ -1,0 +1,12 @@
+#include all "wclasses.h"
+
+guard WCLASSES
+
+
+class WstringRope
+  read struct wstring_buffer* bufs
+
+  finalize
+  public void append(const char* buf, size_t len)
+  public void prepend(const char* buf, size_t len)
+
