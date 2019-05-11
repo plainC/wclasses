@@ -4,6 +4,7 @@
 #ifndef WDEBUG_EXPAND
 # include <stdlib.h>
 # include <stdio.h>
+# include <stdint.h>
 # include <wondermacros/list/cslist.h>
 #endif
 # include <wondermacros/objects/api.h>
