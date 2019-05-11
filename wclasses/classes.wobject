@@ -15,7 +15,7 @@ class Wstring
   construct
   finalize
 
-  public const char* c_str
+  read char* c_str
   read size_t size
   public size_t capacity
 

@@ -18,4 +18,8 @@ int main()
     struct Wstring* s = W_NEW(Wstring, .c_str = "Foo");
     printf("at[1]='%c'\n", W_CALL(s,at)(1));
     W_CALL_VOID(s,free);
+
+    struct Wstring* s_i = W_NEW(Wstring, .c_str = "1234567890123456789");
+    uint64_t v = W_CALL_VOID(s_i,stoull);
+    printf("%llu\n", v);
 }
