@@ -26,6 +26,8 @@ class Wstring
   public int empty()
   public int length()
 
+  public struct Wstring* uc()
+  public struct Wstring* lc()
   public struct Wstring* clear()
   public struct Wstring* insert(int pos, char* str, size_t size)
   public struct Wstring* erase(int first, int last)
