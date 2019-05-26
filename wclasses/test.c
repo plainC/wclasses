@@ -45,6 +45,25 @@ int main()
 
         struct WjsonValue* vv = W_CALL(doc,get)("goo");
         printf("%lld\n", W_OBJECT_AS(vv,WjsonValueInt)->value);
+
+
+        struct WstringRope* rope = W_NEW(WstringRope);
+        W_CALL(rope,append)("/",1);
+        W_CALL(rope,append)("home",4);
+        W_CALL(rope,append)("/",1);
+        W_CALL(rope,append)("wondermacros",12);
+        W_CALL(rope,append)("/",1);
+        W_CALL(rope,append)("Projects",8);
+        printf("Length: %d\n", W_CALLV(rope,length));
+
+        iter = W_CALL(rope,begin)(NULL);
+        while (W_CALLV(iter,has_next)) {
+            size_t size;
+            const struct WstringChunk* chunk = W_CALL(iter,get)(&size);
+            printf("%.*s", chunk->size, chunk->str);
+            W_CALLV(iter,next);
+        }
+        printf("\n");
     }
     W_CATCH_ALL {
         W_EXCEPTION_FPRINTF(stdout);

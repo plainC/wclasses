@@ -2,6 +2,7 @@
 #define __WCLASSES_CLASSES_H
 #include "Witerator.h"
 #include "WiteratorPointer.h"
+#include "WiteratorCslist.h"
 #include "WstringBase.h"
 #include "WstringChunk.h"
 #include "WstringRope.h"

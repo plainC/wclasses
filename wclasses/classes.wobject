@@ -21,6 +21,17 @@ class WiteratorPointer : Witerator
   read const void* last
 
 
+class WiteratorCslist : Witerator
+  construct
+  override get
+  override has_next
+  override next
+
+  read const struct WslistContainer* ptr
+  read const struct WslistContainer* first
+  read int flag
+
+
 class WstringBase
   public struct WstringBase* append(const char* buf, size_t len)
   public struct WstringBase* prepend(const char* buf, size_t len)
@@ -33,9 +44,9 @@ class WstringBase
   
 
 class WstringChunk : WstringBase
-  read char* str
-  read size_t buf_size
-  read size_t size
+  public char* str
+  public size_t buf_size
+  public size_t size
 
   construct
   finalize
@@ -46,11 +57,12 @@ class WstringChunk : WstringBase
 
 
 class WstringRope : WstringBase
-  read struct wstring_buffer* bufs
+  private struct WslistContainer* list
 
   finalize
   override append
   override prepend
+  override length
   override begin
 
 
@@ -101,7 +113,6 @@ class Wstring : WstringBase
 
 class WjsonValue
 
-struct WjsonValue;
 
 class WjsonObject : WjsonValue
   read struct WjsonObjectMap* members;

@@ -18,10 +18,9 @@ extern W_EXCEPTION_TYPE* w_exception_ptr;
 #endif
 # include <wondermacros/objects/api.h>
 
-struct wstring_buffer {
-  const char* buf;
-  size_t size;
-  struct wstring_buffer* next;
+struct WslistContainer {
+    struct WslistContainer* next;
+    void* box[0];
 };
 
 struct WjsonValue;

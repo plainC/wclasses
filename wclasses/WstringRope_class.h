@@ -6,8 +6,9 @@
     /* Inherits: WstringBase */ \
     WstringBase__define \
     \
-    VAR(read,struct wstring_buffer*,bufs) \
+    VAR(private,struct WslistContainer*,list) \
     OVERRIDE(WstringRope,append) \
     OVERRIDE(WstringRope,prepend) \
+    OVERRIDE(WstringRope,length) \
     OVERRIDE(WstringRope,begin) \
     /**/

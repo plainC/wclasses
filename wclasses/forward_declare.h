@@ -4,6 +4,8 @@
 #include <wondermacros/objects/x/forward_declare.h>
 #include "WiteratorPointer_class.h"
 #include <wondermacros/objects/x/forward_declare.h>
+#include "WiteratorCslist_class.h"
+#include <wondermacros/objects/x/forward_declare.h>
 #include "WstringBase_class.h"
 #include <wondermacros/objects/x/forward_declare.h>
 #include "WstringChunk_class.h"
