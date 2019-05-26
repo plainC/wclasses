@@ -26,13 +26,15 @@ int main()
         }
         printf("\n");
 
-        int* array = NULL;
-        W_DYNAMIC_ARRAY_PUSH(array, 1, 2, 3, 7);
+        struct point { int x; int y; };
+        struct point* array = NULL;
+        W_DYNAMIC_ARRAY_PUSH(array, ((struct point) { 1, 2 }));
+        W_DYNAMIC_ARRAY_PUSH(array, ((struct point) { 7, 5 }));
         iter = W_DYNAMIC_ARRAY_GET_ITERATOR(array,0);
         while (W_CALLV(iter,has_next)) {
             size_t size;
-            const int* i = W_CALL(iter,get)(&size);
-            printf("%d\n", *i);
+            const struct point* p = W_CALL(iter,get)(&size);
+            printf("%d,%d\n", p->x, p->y);
             W_CALLV(iter,next);
         }
     }
