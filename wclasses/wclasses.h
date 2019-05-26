@@ -24,6 +24,9 @@ struct wstring_buffer {
   struct wstring_buffer* next;
 };
 
+struct WjsonValue;
+struct WjsonObjectMap { const char* key; struct WjsonValue* value; };
+
 #include "forward_declare.h"
 #include "classes.h"
 #include "Wmacros.h"

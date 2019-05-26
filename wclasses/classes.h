@@ -6,4 +6,12 @@
 #include "WstringChunk.h"
 #include "WstringRope.h"
 #include "Wstring.h"
+#include "WjsonValue.h"
+#include "WjsonObject.h"
+#include "WjsonArray.h"
+#include "WjsonValueString.h"
+#include "WjsonValueInt.h"
+#include "WjsonValueFloat.h"
+#include "WjsonValueBool.h"
+#include "WjsonDocument.h"
 #endif

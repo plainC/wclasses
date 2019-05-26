@@ -30,6 +30,8 @@ class WstringBase
   public struct Witerator* begin(struct Witerator* iter)
 
 
+  
+
 class WstringChunk : WstringBase
   read char* str
   read size_t buf_size
@@ -95,4 +97,37 @@ class Wstring : WstringBase
 
   public uint32_t hash32()
   public uint64_t hash64()
+
+
+class WjsonValue
+
+struct WjsonValue;
+
+class WjsonObject : WjsonValue
+  read struct WjsonObjectMap* members;
+  public struct WjsonObject* add_member(const char* name, struct WjsonValue* value)
+  public struct WjsonValue* get(const char* name)
+  public struct WjsonValue** get_ptr(const char* name)
+
+
+class WjsonArray : WjsonValue
+  read struct WjsonValue** elems
+
+class WjsonValueString : WjsonValue
+  read const char* value
+
+class WjsonValueInt : WjsonValue
+  read int64_t value
+
+class WjsonValueFloat : WjsonValue
+  read double value
+
+class WjsonValueBool : WjsonValue
+  read int value
+
+
+class WjsonDocument
+  read struct WjsonValue* value
+  public int parse(struct WstringBase* json)
+
 

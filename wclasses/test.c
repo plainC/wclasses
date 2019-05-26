@@ -37,6 +37,14 @@ int main()
             printf("%d,%d\n", p->x, p->y);
             W_CALLV(iter,next);
         }
+
+        struct WstringBase* str = W_NEW(WstringChunk, .str = "{\"foo\":42}");
+        struct WjsonObject* doc = W_NEW(WjsonObject);
+        W_CALL(doc,add_member)("foo", W_NEW(WjsonValueInt, .value = 42));
+        W_CALL(doc,add_member)("goo", W_NEW(WjsonValueInt, .value = 142));
+
+        struct WjsonValue* vv = W_CALL(doc,get)("goo");
+        printf("%lld\n", W_OBJECT_AS(vv,WjsonValueInt)->value);
     }
     W_CATCH_ALL {
         W_EXCEPTION_FPRINTF(stdout);
