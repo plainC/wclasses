@@ -25,6 +25,7 @@ class WstringBase
   public struct WstringBase* append(const char* buf, size_t len)
   public struct WstringBase* prepend(const char* buf, size_t len)
   public size_t length()
+  public int empty()
 
   public struct Witerator* begin(struct Witerator* iter)
 
@@ -66,8 +67,6 @@ class Wstring : WstringBase
   public char at(int pos)
   public char front()
   public char back()
-
-  public int empty()
 
   public struct Wstring* uc()
   public struct Wstring* lc()

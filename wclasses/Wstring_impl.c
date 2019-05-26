@@ -108,11 +108,6 @@ M__replace
     }
 }
 
-M__empty
-{
-    return self->size == 0;
-}
-
 M__find
 {
     const char* s = strstr(self->c_str, str);

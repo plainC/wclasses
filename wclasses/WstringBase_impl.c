@@ -20,5 +20,10 @@ M__length
     return 0;
 }
 
+M__empty
+{
+    return W_CALLV(self,length) == 0;
+}
+
 #endif
 
