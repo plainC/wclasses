@@ -1,6 +1,5 @@
 #include "wclasses.h"
-
-#define W_CALLV(o,m) W_CALL_VOID(o,m)
+#include <wondermacros/array/dynamic_array.h>
 
 int main()
 {
@@ -26,6 +25,16 @@ int main()
             W_CALLV(iter,next);
         }
         printf("\n");
+
+        int* array = NULL;
+        W_DYNAMIC_ARRAY_PUSH(array, 1, 2, 3, 7);
+        iter = W_DYNAMIC_ARRAY_GET_ITERATOR(array,0);
+        while (W_CALLV(iter,has_next)) {
+            size_t size;
+            const int* i = W_CALL(iter,get)(&size);
+            printf("%d\n", *i);
+            W_CALLV(iter,next);
+        }
     }
     W_CATCH_ALL {
         W_EXCEPTION_FPRINTF(stdout);

@@ -26,6 +26,7 @@ struct wstring_buffer {
 
 #include "forward_declare.h"
 #include "classes.h"
+#include "Wmacros.h"
 
 #define W_FOR_STRING_ROPE(node,rope) \
     W_CSLIST_FOR_EACH(struct wstring_buffer, node, (rope)->bufs) \
