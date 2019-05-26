@@ -9,15 +9,18 @@ C_SRCS  = $(patsubst %.c,%_impl.c,$(SRCS))
 HEADERS = $(patsubst %.c,%.h,$(SRCS))
 OBJS    = $(patsubst %.c,%.o,$(SRCS))
 
-all: build_src test
+all: build_src Wexceptions.o test
 
 build_src: classes.wobject
 	../wondermacros/tools/wobject -c classes.wobject
 
-test: $(OBJS) test.o
-	cc -o test test.o $(OBJS)
+Wexceptions.o: Wexceptions.c
+	cc -c Wexceptions.c
 
-$(OBJS): $(SRCS) $(HEADERS) $(CLASSES) $(C_SRCS) test.c
+test: $(OBJS) test.o
+	cc -o test test.o $(OBJS) Wexceptions.o
+
+$(OBJS): Wexceptions.c $(SRCS) $(HEADERS) $(CLASSES) $(C_SRCS)
 	cc -c $(CFLAGS) test.c $^
 
 clean:

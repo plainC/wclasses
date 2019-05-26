@@ -1,8 +1,13 @@
 #define CLASS WstringRope
+#define SUPER WstringBase
 #define NO_CONSTRUCT
 
 #define WstringRope__define \
+    /* Inherits: WstringBase */ \
+    WstringBase__define \
+    \
     VAR(read,struct wstring_buffer*,bufs) \
-    METHOD(WstringRope,public,void,append,(const char* buf, size_t len)) \
-    METHOD(WstringRope,public,void,prepend,(const char* buf, size_t len)) \
+    OVERRIDE(WstringRope,append) \
+    OVERRIDE(WstringRope,prepend) \
+    OVERRIDE(WstringRope,begin) \
     /**/

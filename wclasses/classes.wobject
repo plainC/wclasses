@@ -3,15 +3,55 @@
 guard WCLASSES
 
 
-class WstringRope
+class Witerator
+  public const void* get(size_t* size)
+  public int has_next()
+  public void next()
+
+
+class WiteratorPointer : Witerator
+  construct
+  override get
+  override has_next
+  override next
+
+  read size_t elem_size
+  read const void* ptr
+  read const void* first
+  read const void* last
+
+
+class WstringBase
+  public struct WstringBase* append(const char* buf, size_t len)
+  public struct WstringBase* prepend(const char* buf, size_t len)
+  public size_t length()
+
+  public struct Witerator* begin(struct Witerator* iter)
+
+
+class WstringChunk : WstringBase
+  read char* str
+  read size_t buf_size
+  read size_t size
+
+  construct
+  finalize
+  override append
+  override prepend
+  override length
+  override begin
+
+
+class WstringRope : WstringBase
   read struct wstring_buffer* bufs
 
   finalize
-  public void append(const char* buf, size_t len)
-  public void prepend(const char* buf, size_t len)
+  override append
+  override prepend
+  override begin
 
 
-class Wstring
+class Wstring : WstringBase
   construct
   finalize
 
@@ -19,12 +59,15 @@ class Wstring
   read size_t size
   public size_t capacity
 
+  override append
+  override prepend
+  override begin
+
   public char at(int pos)
   public char front()
   public char back()
 
   public int empty()
-  public int length()
 
   public struct Wstring* uc()
   public struct Wstring* lc()
@@ -33,8 +76,6 @@ class Wstring
   public struct Wstring* erase(int first, int last)
   public struct Wstring* push_back(char ch)
   public char pop_back()
-  public struct Wstring* append(char* str, size_t size)
-  public struct Wstring* prepend(char* str, size_t size)
   public int compare(struct Wstring* str)
   public int starts_with(char* str, size_t size)
   public int ends_with(char* str, size_t size)

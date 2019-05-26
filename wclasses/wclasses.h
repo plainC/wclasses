@@ -1,6 +1,15 @@
 #ifndef __WCLASSES_H
 #define __WCLASSES_H
 
+#define W_OBJECT_CAST_TO_VOID
+
+#include <wondermacros/exceptions/exceptions.h>
+#include "Wexceptions.h"
+
+extern W_EXCEPTION_TYPE w_exception_stack[64];
+extern W_EXCEPTION_TYPE* w_exception_ptr;
+
+
 #ifndef WDEBUG_EXPAND
 # include <stdlib.h>
 # include <stdio.h>
