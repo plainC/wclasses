@@ -41,7 +41,6 @@ class WstringBase
   public struct Witerator* begin(struct Witerator* iter)
 
 
-  
 
 class WstringChunk : WstringBase
   public char* str
@@ -139,6 +138,8 @@ class WjsonObject : WjsonValue
 
 class WjsonArray : WjsonValue
   read struct WjsonValue** elems
+  public void push_back(struct WjsonValue* elem)
+  override write
 
 class WjsonValueString : WjsonValue
   read const char* value
