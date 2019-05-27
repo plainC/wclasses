@@ -42,10 +42,14 @@ int main()
         struct WjsonObject* doc = W_NEW(WjsonObject);
         W_CALL(doc,add_member)("foo", W_NEW(WjsonValueInt, .value = 42));
         W_CALL(doc,add_member)("goo", W_NEW(WjsonValueInt, .value = 142));
+        W_CALL(doc,add_member)("x", W_NEW(WjsonValueString, .value = "abc"));
 
         struct WjsonValue* vv = W_CALL(doc,get)("goo");
+        char buffer[512];
+        struct Wwriter* writer = W_NEW(WwriterMemory, .ptr = buffer, .size=512);
+        W_CALL(doc,write)(writer);
         printf("%lld\n", W_OBJECT_AS(vv,WjsonValueInt)->value);
-
+        printf("x='%s'\n", buffer);
 
         struct WstringRope* rope = W_NEW(WstringRope);
         W_CALL(rope,append)("/",1);

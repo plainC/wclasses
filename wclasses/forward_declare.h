@@ -14,6 +14,10 @@
 #include <wondermacros/objects/x/forward_declare.h>
 #include "Wstring_class.h"
 #include <wondermacros/objects/x/forward_declare.h>
+#include "Wwriter_class.h"
+#include <wondermacros/objects/x/forward_declare.h>
+#include "WwriterMemory_class.h"
+#include <wondermacros/objects/x/forward_declare.h>
 #include "WjsonValue_class.h"
 #include <wondermacros/objects/x/forward_declare.h>
 #include "WjsonObject_class.h"

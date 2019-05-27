@@ -36,4 +36,20 @@ M__get_ptr
         return &map->value;
 }
 
+METHOD(WjsonObject,public,int,write,(struct Wwriter* writer))
+{
+    W_CALL(writer,putc)('{');
+    int count=0;
+    W_HASH_TABLE_FOR_EACH(struct WjsonObjectMap, map, self->members) {
+        if (count++)
+            W_CALL(writer,cat)(",\"");
+        else
+            W_CALL(writer,putc)('\"');
+        W_CALL(writer,cat)(map->key);
+        W_CALL(writer,cat)("\":");
+        W_CALL(map->value,write)(writer);
+    }
+    W_CALL(writer,putc)('}');
+}
+
 #endif

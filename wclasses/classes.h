@@ -7,6 +7,8 @@
 #include "WstringChunk.h"
 #include "WstringRope.h"
 #include "Wstring.h"
+#include "Wwriter.h"
+#include "WwriterMemory.h"
 #include "WjsonValue.h"
 #include "WjsonObject.h"
 #include "WjsonArray.h"

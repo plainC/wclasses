@@ -111,7 +111,22 @@ class Wstring : WstringBase
   public uint64_t hash64()
 
 
+class Wwriter
+  public int putc(char ch)
+  public int cat(const char* str)
+  public int append(const char* str, size_t size)
+
+
+class WwriterMemory : Wwriter
+  read char* ptr
+  read size_t size
+  override putc
+  override cat
+  override append
+
+
 class WjsonValue
+  public int write(struct Wwriter* writer)
 
 
 class WjsonObject : WjsonValue
@@ -119,6 +134,7 @@ class WjsonObject : WjsonValue
   public struct WjsonObject* add_member(const char* name, struct WjsonValue* value)
   public struct WjsonValue* get(const char* name)
   public struct WjsonValue** get_ptr(const char* name)
+  override write
 
 
 class WjsonArray : WjsonValue
@@ -126,15 +142,22 @@ class WjsonArray : WjsonValue
 
 class WjsonValueString : WjsonValue
   read const char* value
+  override write
+
 
 class WjsonValueInt : WjsonValue
   read int64_t value
+  override write
+
 
 class WjsonValueFloat : WjsonValue
   read double value
+  override write
+
 
 class WjsonValueBool : WjsonValue
   read int value
+  override write
 
 
 class WjsonDocument
