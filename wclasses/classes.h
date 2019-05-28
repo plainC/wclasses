@@ -9,6 +9,8 @@
 #include "Wstring.h"
 #include "Wwriter.h"
 #include "WwriterMemory.h"
+#include "Wreader.h"
+#include "WreaderMemory.h"
 #include "WjsonValue.h"
 #include "WjsonObject.h"
 #include "WjsonArray.h"
