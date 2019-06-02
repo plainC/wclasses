@@ -8,6 +8,12 @@ class Witerator
   public void next()
 
 
+class WiteratorEmpty : Witerator
+  construct
+  override get
+  override has_next
+  override next
+
 class WiteratorPointer : Witerator
   construct
   override get

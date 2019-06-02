@@ -8,4 +8,9 @@
 #include "WwriterMemory.h"
 #include "Wreader.h"
 #include "WreaderMemory.h"
+#include "Wbind.h"
+#include "WbindV.h"
+#include "WbindVptr.h"
+#include "WbindI.h"
+#include "WbindD.h"
 #endif

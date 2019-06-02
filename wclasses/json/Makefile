@@ -23,4 +23,5 @@ libwstd_json.a: $(OBJS)
 	ranlib $@
 
 clean:
-	rm -f $(OBJS) *.gch *.o
+	rm -f $(OBJS) $(CLASSES) $(SRCS) $(HEADERS) \
+	classes.h forward_declare.h *.gch *.o libwstd_json.a

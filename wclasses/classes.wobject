@@ -3,7 +3,6 @@
 guard WCLASSES
 
 
-
 class WstringBase
   public struct WstringBase* append(const char* buf, size_t len)
   public struct WstringBase* prepend(const char* buf, size_t len)
@@ -111,4 +110,19 @@ class WreaderMemory : Wreader
   override peek
 
 
+class Wbind
+  read struct w_context* context
+
+class WbindV : Wbind
+  read wbind_void_func func
+
+class WbindVptr : Wbind
+  read wbind_voidptr_func func
+
+class WbindI : Wbind
+  read wbind_int_func func
+  public int eval()
+
+class WbindD : Wbind
+  read wbind_double_func func
 

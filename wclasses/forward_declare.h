@@ -16,4 +16,14 @@
 #include <wondermacros/objects/x/forward_declare.h>
 #include "WreaderMemory_class.h"
 #include <wondermacros/objects/x/forward_declare.h>
+#include "Wbind_class.h"
+#include <wondermacros/objects/x/forward_declare.h>
+#include "WbindV_class.h"
+#include <wondermacros/objects/x/forward_declare.h>
+#include "WbindVptr_class.h"
+#include <wondermacros/objects/x/forward_declare.h>
+#include "WbindI_class.h"
+#include <wondermacros/objects/x/forward_declare.h>
+#include "WbindD_class.h"
+#include <wondermacros/objects/x/forward_declare.h>
 #endif

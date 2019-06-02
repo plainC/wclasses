@@ -11,10 +11,12 @@ extern W_EXCEPTION_TYPE* w_exception_ptr;
 
 
 #ifndef WDEBUG_EXPAND
+# include <stdarg.h>
 # include <stdlib.h>
 # include <stdio.h>
 # include <stdint.h>
 # include <wondermacros/list/cslist.h>
+# include <wondermacros/array/dynamic_array.h>
 #endif
 # include <wondermacros/objects/api.h>
 
@@ -25,6 +27,16 @@ struct WslistContainer {
 
 struct WjsonValue;
 struct WjsonObjectMap { const char* key; struct WjsonValue* value; };
+
+struct w_context {
+    int nargs;
+    void* args[0];
+};
+
+typedef void (*wbind_void_func)(int nargs, ...);
+typedef void* (*wbind_voidptr_func)(int nargs, ...);
+typedef int (*wbind_int_func)(struct w_context* context);
+typedef double (*wbind_double_func)(int nargs, ...);
 
 #include "forward_declare.h"
 #include "iterator/forward_declare.h"
