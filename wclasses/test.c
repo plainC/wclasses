@@ -1,31 +1,6 @@
 #include "wclasses.h"
 #include <wondermacros/array/dynamic_array.h>
 
-int add(struct w_context* context)
-{
-    int sum=0;
-    for (int i=0; i < context->nargs; i++)
-        sum += *((int*) context->args[i]);
-
-    return sum;
-}
-
-static inline struct w_context*
-w_bind(int nargs, ...)
-{
-    struct w_context* context = malloc(sizeof(struct w_context) + sizeof(void*)*nargs);
-    context->nargs = nargs;
-    va_list ap;
-    va_start(ap, nargs);
-    for (int i=0; i < nargs; i++) {
-        context->args[i] = malloc(sizeof(int));
-        *(((int*) context->args[i])) = va_arg(ap, int);
-    }
-    va_end(ap);
-
-    return context;
-}
-
 int main()
 {
     W_TRY {
@@ -100,8 +75,6 @@ int main()
         printf("\n");
 #endif
 
-       struct WbindI* lazy = W_NEW(WbindI, .func = add, .context = w_bind(3, 1, 2, 3));
-       printf("value=%d\n", W_CALLV(lazy,eval));
    }
     W_CATCH_ALL {
         W_EXCEPTION_FPRINTF(stdout);

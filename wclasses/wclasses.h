@@ -4,7 +4,7 @@
 #define W_OBJECT_CAST_TO_VOID
 
 #include <wondermacros/exceptions/exceptions.h>
-#include "Wexceptions.h"
+#include "core/Wexceptions.h"
 
 extern W_EXCEPTION_TYPE w_exception_stack[64];
 extern W_EXCEPTION_TYPE* w_exception_ptr;
@@ -38,12 +38,15 @@ typedef void* (*wbind_voidptr_func)(int nargs, ...);
 typedef int (*wbind_int_func)(struct w_context* context);
 typedef double (*wbind_double_func)(int nargs, ...);
 
-#include "forward_declare.h"
+#include "core/forward_declare.h"
 #include "iterator/forward_declare.h"
 #include "json/forward_declare.h"
-#include "classes.h"
+#include "string/forward_declare.h"
+
+#include "core/classes.h"
 #include "iterator/classes.h"
 #include "json/classes.h"
+#include "string/classes.h"
 #include "Wmacros.h"
 
 #define W_FOR_STRING_ROPE(node,rope) \

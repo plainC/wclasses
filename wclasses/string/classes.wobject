@@ -1,0 +1,82 @@
+#include all "wclasses.h"
+
+guard WCLASSES_STRING
+
+
+class WstringBase
+  public struct WstringBase* append(const char* buf, size_t len)
+  public struct WstringBase* prepend(const char* buf, size_t len)
+  public size_t length()
+  public int empty()
+
+  public struct Witerator* begin(struct Witerator* iter)
+
+
+
+class WstringChunk : WstringBase
+  public char* str
+  public size_t buf_size
+  public size_t size
+
+  construct
+  finalize
+  override append
+  override prepend
+  override length
+  override begin
+
+
+class WstringRope : WstringBase
+  private struct WslistContainer* list
+
+  finalize
+  override append
+  override prepend
+  override length
+  override begin
+
+
+class Wstring : WstringBase
+  construct
+  finalize
+
+  read char* c_str
+  read size_t size
+  public size_t capacity
+
+  override append
+  override prepend
+  override begin
+
+  public char at(int pos)
+  public char front()
+  public char back()
+
+  public struct Wstring* uc()
+  public struct Wstring* lc()
+  public struct Wstring* clear()
+  public struct Wstring* insert(int pos, char* str, size_t size)
+  public struct Wstring* erase(int first, int last)
+  public struct Wstring* push_back(char ch)
+  public char pop_back()
+  public int compare(struct Wstring* str)
+  public int starts_with(char* str, size_t size)
+  public int ends_with(char* str, size_t size)
+  public struct Wstring* replace(int first, int last, char* str, size_t size)
+  public const char* substr(int first, int count)
+
+  public int find(const char* str, int pos)
+  public int rfind(const char* str, int pos)
+  public const char* find_first_of(const char* chars, size_t size)
+  public const char* find_first_not_of(const char* chars, size_t size)
+  public const char* find_last_of(const char* chars, size_t size)
+  public const char* find_last_not_of(const char* chars, size_t size)
+
+  public int32_t stol()
+  public uint32_t stoul()
+  public int64_t stoll()
+  public uint64_t stoull()
+
+  public uint32_t hash32()
+  public uint64_t hash64()
+

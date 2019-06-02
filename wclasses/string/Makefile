@@ -4,13 +4,13 @@ CFLAGS =                                   \
 	-g                                 \
 	-fPIC                              \
 
-NAME    = libwstd_iterator.a
+NAME    = libwstd_string.a
 
 SRCS    =                  \
-	Witerator.c        \
-	WiteratorCslist.c  \
-	WiteratorEmpty.c   \
-	WiteratorPointer.c \
+	Wstring.c         \
+	WstringBase.c  \
+	WstringRope.c   \
+	WstringChunk.c \
 
 OBJS    = $(patsubst %.c,%.o,$(SRCS))
 

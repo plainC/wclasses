@@ -4,15 +4,13 @@ CFLAGS =                                   \
 	-g                                 \
 	-fPIC                              \
 
-NAME    = libwstd_iterator.a
+SRCS    =             \
+	Wreader.c     \
+	WreaderMemory.c     \
+	Wwriter.c     \
+	WwriterMemory.c     \
 
-SRCS    =                  \
-	Witerator.c        \
-	WiteratorCslist.c  \
-	WiteratorEmpty.c   \
-	WiteratorPointer.c \
-
-OBJS    = $(patsubst %.c,%.o,$(SRCS))
+OBJS    = $(patsubst %.c,%.o,$(SRCS)) Wexceptions.o
 
 CLASSES = $(wildcard *_class.h)
 GEN_C   = $(patsubst %_class.h,%.c,$(CLASSES))
@@ -22,13 +20,13 @@ GEN_H   = $(patsubst %.c,%.h,$(SRCS))
 source: classes.wobject
 	../../wondermacros/tools/wobject -c classes.wobject
 
-lib: $(NAME)
+lib: libwstd_core.a
 
 *.o: *.c *.h
 
-$(NAME): $(OBJS)
+libwstd_core.a: $(OBJS)
 	ar r $@ $^
 	ranlib $@
 
 clean:
-	rm -f *.o *.gch $(NAME) $(CLASSES) $(GEN_H) $(GEN_C) classes.h forward_declare.h
+	rm -f *.o libwstd_core.a *.gch $(NAME) $(CLASSES) $(GEN_C) $(GEN_H) classes.h forward_declare.h

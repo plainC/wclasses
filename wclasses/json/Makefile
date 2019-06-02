@@ -1,27 +1,38 @@
 CFLAGS =                                   \
 	-I .                               \
 	-I ..                              \
-        -g                                 \
+	-g                                 \
 	-fPIC                              \
 
-CLASSES = $(wildcard *_class.h)
-SRCS    = $(patsubst %_class.h,%.c,$(CLASSES))
-C_SRCS  = $(patsubst %.c,%_impl.c,$(SRCS))
-HEADERS = $(patsubst %.c,%.h,$(SRCS))
+NAME    = libwstd_json.a
+
+SRCS    =                  \
+	WjsonArray.c       \
+	WjsonDocument.c    \
+	WjsonObject.c      \
+	WjsonValue.c       \
+	WjsonValueBool.c   \
+	WjsonValueFloat.c  \
+	WjsonValueInt.c    \
+	WjsonValueString.c \
+
 OBJS    = $(patsubst %.c,%.o,$(SRCS))
 
-all: build_src libwstd_json.a
+CLASSES = $(wildcard *_class.h)
+GEN_C   = $(patsubst %_class.h,%.c,$(CLASSES))
+GEN_H   = $(patsubst %.c,%.h,$(SRCS))
 
-build_src: classes.wobject
+
+source: classes.wobject
 	../../wondermacros/tools/wobject -c classes.wobject
 
-$(OBJS): $(SRCS) $(HEADERS) $(CLASSES) $(C_SRCS)
-	cc -c $(CFLAGS) $^
+lib: $(NAME)
 
-libwstd_json.a: $(OBJS)
+*.o: *.c *.h
+
+$(NAME): $(OBJS)
 	ar r $@ $^
 	ranlib $@
 
 clean:
-	rm -f $(OBJS) $(CLASSES) $(SRCS) $(HEADERS) \
-	classes.h forward_declare.h *.gch *.o libwstd_json.a
+	rm -f *.o *.gch $(NAME) $(CLASSES) $(GEN_H) $(GEN_C) classes.h forward_declare.h

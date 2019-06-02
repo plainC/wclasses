@@ -1,0 +1,33 @@
+#include all "wclasses.h"
+
+guard WCLASSES_CORE
+
+
+class Wwriter
+  public int putc(char ch)
+  public int cat(const char* str)
+  public int append(const char* str, size_t size)
+
+
+class WwriterMemory : Wwriter
+  read char* ptr
+  read size_t size
+  override putc
+  override cat
+  override append
+
+
+class Wreader
+  public char peek()
+  public char getc()
+  public size_t read(char* buf, size_t size)
+
+class WreaderMemory : Wreader
+  read char* ptr
+  read size_t pos
+  read size_t size
+  construct
+  override getc
+  override read
+  override peek
+
