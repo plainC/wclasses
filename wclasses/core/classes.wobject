@@ -18,8 +18,8 @@ class WwriterMemory : Wwriter
 
 
 class Wreader
-  public char peek()
-  public char getc()
+  public int peek()
+  public int getc()
   public size_t read(char* buf, size_t size)
 
 class WreaderMemory : Wreader
