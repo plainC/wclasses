@@ -9,7 +9,14 @@ C_SRCS  = $(patsubst %.c,%_impl.c,$(SRCS))
 HEADERS = $(patsubst %.c,%.h,$(SRCS))
 OBJS    = $(patsubst %.c,%.o,$(SRCS))
 
-all: build_src Wexceptions.o test
+all: iterator json main
+
+main: build_src Wexceptions.o test
+
+iterator:
+	cd iterator && make all
+json:
+	cd json && make all
 
 build_src: classes.wobject
 	../wondermacros/tools/wobject -c classes.wobject
@@ -18,10 +25,12 @@ Wexceptions.o: Wexceptions.c
 	cc -c Wexceptions.c
 
 test: $(OBJS) test.o
-	cc -o test test.o $(OBJS) Wexceptions.o
+	cc -o test test.o $(OBJS) \
+	Wexceptions.o iterator/libwstd_iterator.a json/libwstd_json.a
 
 $(OBJS): Wexceptions.c $(SRCS) $(HEADERS) $(CLASSES) $(C_SRCS)
 	cc -c $(CFLAGS) test.c $^
 
 clean:
+	cd json && make clean
 	rm -f test $(OBJS) *.gch *.o

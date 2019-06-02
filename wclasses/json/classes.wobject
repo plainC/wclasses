@@ -1,6 +1,6 @@
 #include all "wclasses.h"
 
-guard WCLASSES
+guard WCLASSES_JSON
 
 
 class WjsonValue

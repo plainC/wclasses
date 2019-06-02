@@ -1,0 +1,33 @@
+#include all "wclasses.h"
+
+guard WCLASSES_ITERATOR
+
+class Witerator
+  public const void* get(size_t* size)
+  public int has_next()
+  public void next()
+
+
+class WiteratorPointer : Witerator
+  construct
+  override get
+  override has_next
+  override next
+
+  read size_t elem_size
+  read const void* ptr
+  read const void* first
+  read const void* last
+
+
+class WiteratorCslist : Witerator
+  construct
+  override get
+  override has_next
+  override next
+
+  read const struct WslistContainer* ptr
+  read const struct WslistContainer* first
+  read int flag
+
+

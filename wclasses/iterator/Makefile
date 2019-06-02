@@ -10,7 +10,7 @@ C_SRCS  = $(patsubst %.c,%_impl.c,$(SRCS))
 HEADERS = $(patsubst %.c,%.h,$(SRCS))
 OBJS    = $(patsubst %.c,%.o,$(SRCS))
 
-all: build_src libwstd_json.a
+all: build_src libwstd_iterator.a
 
 build_src: classes.wobject
 	../../wondermacros/tools/wobject -c classes.wobject
@@ -18,7 +18,7 @@ build_src: classes.wobject
 $(OBJS): $(SRCS) $(HEADERS) $(CLASSES) $(C_SRCS)
 	cc -c $(CFLAGS) $^
 
-libwstd_json.a: $(OBJS)
+libwstd_iterator.a: $(OBJS)
 	ar r $@ $^
 	ranlib $@
 

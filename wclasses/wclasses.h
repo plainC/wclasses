@@ -27,7 +27,11 @@ struct WjsonValue;
 struct WjsonObjectMap { const char* key; struct WjsonValue* value; };
 
 #include "forward_declare.h"
+#include "iterator/forward_declare.h"
+#include "json/forward_declare.h"
 #include "classes.h"
+#include "iterator/classes.h"
+#include "json/classes.h"
 #include "Wmacros.h"
 
 #define W_FOR_STRING_ROPE(node,rope) \

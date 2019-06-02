@@ -3,34 +3,6 @@
 guard WCLASSES
 
 
-class Witerator
-  public const void* get(size_t* size)
-  public int has_next()
-  public void next()
-
-
-class WiteratorPointer : Witerator
-  construct
-  override get
-  override has_next
-  override next
-
-  read size_t elem_size
-  read const void* ptr
-  read const void* first
-  read const void* last
-
-
-class WiteratorCslist : Witerator
-  construct
-  override get
-  override has_next
-  override next
-
-  read const struct WslistContainer* ptr
-  read const struct WslistContainer* first
-  read int flag
-
 
 class WstringBase
   public struct WstringBase* append(const char* buf, size_t len)
@@ -138,47 +110,5 @@ class WreaderMemory : Wreader
   override read
   override peek
 
-
-class WjsonValue
-  public int write(struct Wwriter* writer)
-
-
-class WjsonObject : WjsonValue
-  read struct WjsonObjectMap* members;
-  public struct WjsonObject* add_member(const char* name, struct WjsonValue* value)
-  public struct WjsonValue* get(const char* name)
-  public struct WjsonValue** get_ptr(const char* name)
-  override write
-
-
-class WjsonArray : WjsonValue
-  read struct WjsonValue** elems
-  public void push_back(struct WjsonValue* elem)
-  override write
-
-class WjsonValueString : WjsonValue
-  read const char* value
-  override write
-
-
-class WjsonValueInt : WjsonValue
-  read int64_t value
-  override write
-
-
-class WjsonValueFloat : WjsonValue
-  read double value
-  override write
-
-
-class WjsonValueBool : WjsonValue
-  read int value
-  override write
-
-
-class WjsonDocument : WjsonValue
-  read struct WjsonValue* value
-  public int parse(struct Wreader* reader)
-  override write
 
 

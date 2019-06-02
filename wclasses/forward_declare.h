@@ -1,11 +1,5 @@
 #ifndef __WCLASSES_FORWARD_DECLARE_H
 #define __WCLASSES_FORWARD_DECLARE_H
-#include "Witerator_class.h"
-#include <wondermacros/objects/x/forward_declare.h>
-#include "WiteratorPointer_class.h"
-#include <wondermacros/objects/x/forward_declare.h>
-#include "WiteratorCslist_class.h"
-#include <wondermacros/objects/x/forward_declare.h>
 #include "WstringBase_class.h"
 #include <wondermacros/objects/x/forward_declare.h>
 #include "WstringChunk_class.h"
@@ -21,21 +15,5 @@
 #include "Wreader_class.h"
 #include <wondermacros/objects/x/forward_declare.h>
 #include "WreaderMemory_class.h"
-#include <wondermacros/objects/x/forward_declare.h>
-#include "WjsonValue_class.h"
-#include <wondermacros/objects/x/forward_declare.h>
-#include "WjsonObject_class.h"
-#include <wondermacros/objects/x/forward_declare.h>
-#include "WjsonArray_class.h"
-#include <wondermacros/objects/x/forward_declare.h>
-#include "WjsonValueString_class.h"
-#include <wondermacros/objects/x/forward_declare.h>
-#include "WjsonValueInt_class.h"
-#include <wondermacros/objects/x/forward_declare.h>
-#include "WjsonValueFloat_class.h"
-#include <wondermacros/objects/x/forward_declare.h>
-#include "WjsonValueBool_class.h"
-#include <wondermacros/objects/x/forward_declare.h>
-#include "WjsonDocument_class.h"
 #include <wondermacros/objects/x/forward_declare.h>
 #endif
