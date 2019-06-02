@@ -6,4 +6,3 @@ METHOD(WjsonValueBool,public,int,write,(struct Wwriter* writer))
 }
 
 #endif
-

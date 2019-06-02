@@ -7,15 +7,18 @@ class Wwriter
   public int putc(char ch)
   public int cat(const char* str)
   public int append(const char* str, size_t size)
+  public void clear()
 
 
 class WwriterMemory : Wwriter
+  read char* start
   read char* ptr
   read size_t size
+  construct
   override putc
   override cat
   override append
-
+  override clear
 
 class Wreader
   public int peek()

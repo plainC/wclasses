@@ -9,5 +9,8 @@ M__cat
 M__append
 {}
 
+M__clear
+{}
+
 #endif
 

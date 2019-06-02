@@ -50,6 +50,7 @@ METHOD(WjsonObject,public,int,write,(struct Wwriter* writer))
         W_CALL(map->value,write)(writer);
     }
     W_CALL(writer,putc)('}');
+    return 0;
 }
 
 #endif

@@ -28,7 +28,10 @@ test: $(OBJS) test.o
 	core/libwstd_core.a iterator/libwstd_iterator.a json/libwstd_json.a
 
 unit_tests:
-	gcc -o unit_tests -I. unit_tests.c core/libwstd_core.a iterator/libwstd_iterator.a
+	gcc -o unit_tests -I. unit_tests.c \
+	core/libwstd_core.a \
+	iterator/libwstd_iterator.a \
+	json/libwstd_json.a \
 
 $(OBJS): core/libwstd_core.a $(SRCS) $(HEADERS) $(CLASSES) $(C_SRCS)
 	cc -c $(CFLAGS) test.c $^
